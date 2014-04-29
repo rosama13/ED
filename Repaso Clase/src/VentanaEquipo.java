@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -15,6 +16,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
+import java.util.ArrayList;
 
 
 public class VentanaEquipo extends JFrame {
@@ -29,6 +31,9 @@ public class VentanaEquipo extends JFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
+	
+	private JComboBox contenido;
+	private Liga contenidoliga;
 
 	//Creamos la clase que guarde nuestros datos
 	private void guardarEnFichero(){
@@ -61,13 +66,16 @@ public class VentanaEquipo extends JFrame {
 			System.err.println("Error al abrir el archivo");
 		}
 	}
-	
+
 	
 	/**
 	 * Create the frame.
 	 */
-	public VentanaEquipo(Equipo e) {
+	public VentanaEquipo(Equipo e, JComboBox f, Liga g) {
+		
 		equipo=e;
+		contenido=f;
+		contenidoliga=g;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -120,36 +128,37 @@ public class VentanaEquipo extends JFrame {
 				equipo.setPartidosGanados(c);
 				equipo.setPartidosPerdidos(d);
 				
-				//Guardar datos en archivo
-				guardarEnFichero();
+				contenido.addItem(equip);
+				
+				
 			}
 		});
-		btnGuardarDatos.setBounds(321, 25, 103, 72);
+		btnGuardarDatos.setBounds(291, 25, 133, 72);
 		contentPane.add(btnGuardarDatos);
 		
 		textField = new JTextField();
-		textField.setBounds(147, 22, 147, 20);
+		textField.setBounds(147, 22, 134, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(147, 63, 147, 20);
+		textField_1.setBounds(147, 63, 134, 20);
 		contentPane.add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(147, 88, 147, 20);
+		textField_2.setBounds(147, 88, 134, 20);
 		contentPane.add(textField_2);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(147, 119, 147, 20);
+		textField_3.setBounds(147, 119, 134, 20);
 		contentPane.add(textField_3);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
-		textField_4.setBounds(147, 147, 147, 20);
+		textField_4.setBounds(147, 147, 134, 20);
 		contentPane.add(textField_4);
 		
 		textField_5 = new JTextField();

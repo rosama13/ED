@@ -14,18 +14,6 @@ public class Equipo implements Serializable{
 	private int posicion;
 	private String nombreJugador="";
 	
-	
-	public void modificarJugador(int posicionJugador, String nombreNuevo){
-		
-		jugadores[posicionJugador]=nombreNuevo;
-	}
-	// Devolver posicion Jugador
-	
-	public String devolverJugador(int posicionJugador){
-		
-		return jugadores[posicionJugador];
-	}
-	
 	public Equipo() {
 		// TODO Auto-generated constructor stub
 		jugadores=new String[posicion];
@@ -41,6 +29,19 @@ public class Equipo implements Serializable{
 		 partidosGanados=partidosG;
 		 partidosPerdidos=partidosP;
 	}
+	
+	public void modificarJugador(int posicionJugador, String nombreNuevo){
+		
+		jugadores[posicionJugador]=nombreNuevo;
+	}
+	// Devolver posicion Jugador
+	
+	public String devolverJugador(int posicionJugador){
+		
+		return jugadores[posicionJugador];
+	}
+	
+
 	
 	//Creacion de valores
 	
@@ -78,5 +79,8 @@ public class Equipo implements Serializable{
 	public void setposicion(int pos) {
 		// TODO Auto-generated method stub
 		
+	}
+	public String toString(){
+		return nombreEquipo;
 	}
 }

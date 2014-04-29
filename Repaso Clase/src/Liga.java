@@ -34,6 +34,6 @@ public class Liga implements Serializable{
     }
     
     public Equipo getEquipo(int posicion) {
-    	     			return equipos[posicion];
+    	     			return equipos.get(posicion);
 	}
 }
